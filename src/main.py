@@ -1,9 +1,20 @@
 from fastapi import FastAPI
-
+from fastapi.middleware.cors import CORSMiddleware
 from src.infrastructure.db.session import init_db
 from src.interface.api.ride_router import router as ride_router
 
 app = FastAPI(title="Ride Service")
+
+
+origins = ["*"]  # Para desarrollo — permite todo
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],  # GET, POST, PUT, DELETE, OPTIONS...
+    allow_headers=["*"],  # Authorization, Content-Type, etc.
+)
 
 
 @app.on_event("startup")
