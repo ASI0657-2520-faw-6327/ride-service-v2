@@ -29,7 +29,7 @@ class PassengerStatusDB(str, PyEnum):
 class RideModel(Base):
     __tablename__ = "rides"
 
-    id = Column(String, primary_key=True, index=True, autoincrement=True)
+    id = Column(Integer, primary_key=True, index=True, autoincrement=True)
     driver_id = Column(String, index=True, nullable=False)
     origin = Column(String, index=True, nullable=False)
     destination = Column(String, index=True, nullable=False)
