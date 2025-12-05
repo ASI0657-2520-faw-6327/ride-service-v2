@@ -52,7 +52,7 @@ class RidePassengerModel(Base):
     __tablename__ = "ride_passengers"
 
     id = Column(Integer, primary_key=True, index=True)
-    ride_id = Column(Integer, ForeignKey("rides.id"), nullable=False)
+    ride_id = Column(String, ForeignKey("rides.id"), nullable=False)
     passenger_id = Column(String, index=True, nullable=False)
     status = Column(Enum(PassengerStatusDB), nullable=False)
     joined_at = Column(DateTime, default=datetime.utcnow, nullable=False)
